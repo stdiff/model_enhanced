@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="model_enhanced",
-    version="0.1",
+    version="0.2",
     description="Just helper classes for MLflow",
     url="https://github.com/stdiff/model_enhanced",
     author="Hironori Sakai",

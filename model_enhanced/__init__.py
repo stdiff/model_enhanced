@@ -65,11 +65,6 @@ class BinaryModel(ClassificationModel):
         return self.predict_proba(X)[self.pos_label]
 
 
-        #col = list(self.model.classes_).index(self.pos_label)
-        #X_processed = self
-        #return pd.Series(self.model.predict_proba(X)[:, col], name="score", index=X.index)
-
-
     def predict(self, X:pd.DataFrame) -> pd.Series:
         """
         Note that this methods produces a Series with 0 and 1.
@@ -79,6 +74,7 @@ class BinaryModel(ClassificationModel):
         :return: Series of 1 and 0.
         """
         y_score = self.compute_score(X)
+        y_score.name = "prediction"
         return y_score.apply(lambda y: 1 if y >= self.threshold else 0)
 
 
